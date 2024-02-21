@@ -1,3 +1,12 @@
 from django.contrib import admin
+from vistaprevia.models import Categoria
+from vistaprevia.models import Producto
 
-# Register your models here.
+
+
+
+admin.site.register(Categoria)
+admin.site.register(Producto)
+
+
+

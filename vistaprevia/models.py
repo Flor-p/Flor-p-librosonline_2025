@@ -15,6 +15,6 @@ class Producto(models.Model):
     categoria = models.ManyToManyField(Categoria)
     
 def __str__(self, ):
-    return self.producto + str(self.fecha_publicacion)
+    return self.producto + "---" + str(self.fecha_publicacion)
          
 

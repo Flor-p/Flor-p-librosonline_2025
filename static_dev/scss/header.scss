@@ -1,0 +1,87 @@
+/* Global Styles */
+.dosis {
+    font-family: "Dosis", sans-serif;
+}
+header
+/* Navbar Styles */
+
+
+
+.navbar-nav .nav-link {
+    font-family: "Dosis", sans-serif;
+    font-size: 1.2rem;
+}
+
+.carousel, section {
+    font-family: "Dosis", sans-serif;
+}
+/* About Styles */
+.alfa-slab-one-regular {
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.about {
+  font-family: "Alfa Slab One", serif;
+  color: $font-color1;
+  background-color: $background-color2;
+  padding: $about-section-padding;
+}
+
+.about-btn {
+  font-family: "Dosis", sans-serif;
+}
+
+/* Footer Styles */
+footer {
+    background-color: $background-color1;
+    color: $background-color1;
+    padding: 10px;
+    font-family: "Dosis", sans-serif;
+	
+}
+
+.footer-column {
+    max-width: 24%;
+}
+
+.social-link {
+    color: white;
+    font-size: 15px;
+    margin-right: 0px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+/* Custom Styles for Removing Gutters */
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.no-gutters [class^="col-"],
+.no-gutters [class*=" col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+

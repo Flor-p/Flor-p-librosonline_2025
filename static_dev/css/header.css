@@ -1,0 +1,103 @@
+/* Global Styles */
+/* line 2, ../../../diplo/librosonline/static_dev/scss/header.scss */
+.dosis {
+  font-family: "Dosis", sans-serif;
+}
+
+/* Navbar Styles */
+/* line 8, ../../../diplo/librosonline/static_dev/scss/header.scss */
+.navbar {
+  background-color: #000000;
+}
+
+/* line 12, ../../../diplo/librosonline/static_dev/scss/header.scss */
+.navbar-nav .nav-link {
+  font-family: "Dosis", sans-serif;
+  font-size: 1.2rem;
+}
+
+/* line 17, ../../../diplo/librosonline/static_dev/scss/header.scss */
+.carousel, section {
+  font-family: "Dosis", sans-serif;
+}
+
+/* About Styles */
+/* line 21, ../../../diplo/librosonline/static_dev/scss/header.scss */
+.alfa-slab-one-regular {
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* line 27, ../../../diplo/librosonline/static_dev/scss/header.scss */
+.about {
+  font-family: "Alfa Slab One", serif;
+  color: white;
+  background-color: #0493BF;
+  padding: 100px;
+}
+
+/* line 34, ../../../diplo/librosonline/static_dev/scss/header.scss */
+.about-btn {
+  font-family: "Dosis", sans-serif;
+}
+
+/* Footer Styles */
+/* line 39, ../../../diplo/librosonline/static_dev/scss/header.scss */
+footer {
+  background-color: #000000;
+  color: #000000;
+  padding: 10px;
+  font-family: "Dosis", sans-serif;
+}
+
+/* line 47, ../../../diplo/librosonline/static_dev/scss/header.scss */
+.footer-column {
+  max-width: 24%;
+}
+
+/* line 51, ../../../diplo/librosonline/static_dev/scss/header.scss */
+.social-link {
+  color: white;
+  font-size: 15px;
+  margin-right: 0px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  /* line 59, ../../../diplo/librosonline/static_dev/scss/header.scss */
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  /* line 63, ../../../diplo/librosonline/static_dev/scss/header.scss */
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  /* line 69, ../../../diplo/librosonline/static_dev/scss/header.scss */
+  .navbar-brand {
+    font-size: 1rem;
+  }
+  /* line 73, ../../../diplo/librosonline/static_dev/scss/header.scss */
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+  }
+}
+
+/* Custom Styles for Removing Gutters */
+/* line 79, ../../../diplo/librosonline/static_dev/scss/header.scss */
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* line 84, ../../../diplo/librosonline/static_dev/scss/header.scss */
+.no-gutters [class^="col-"],
+.no-gutters [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/*# sourceMappingURL=header.css.map */

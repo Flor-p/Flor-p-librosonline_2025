@@ -1,0 +1,33 @@
+/*Global Colors*/
+/* ABOUT SECTION variables */
+/* SECTION TITLES variables */
+/* BTN variables */
+/* Define ABOUT SECTION styles using SCSS variables */
+/* line 23, ../../../diplo/librosonline/static_dev/scss/variables.scss */
+#about {
+  background-color: #0493BF;
+  padding: 120px;
+}
+
+/* line 28, ../../../diplo/librosonline/static_dev/scss/variables.scss */
+#about .container .sec-title {
+  text-align: center;
+}
+
+/* line 31, ../../../diplo/librosonline/static_dev/scss/variables.scss */
+#about .container .sec-title h1 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 0px;
+}
+
+/* line 37, ../../../diplo/librosonline/static_dev/scss/variables.scss */
+#about .container .sec-title .btn {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+/*# sourceMappingURL=variables.css.map */

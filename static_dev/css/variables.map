@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "variables.css",
+	"sources": [
+		"../scss/variables.scss"
+	],
+	"sourcesContent": [
+		"/*Global Colors*/\n$background-color1: #000000;\n$background-color2: #0493BF;\n$font-color1: #FFFFFF;\n\n/* ABOUT SECTION variables */\n$background-color2: #0493BF;\n$about-section-padding: 120px;\n\n/* SECTION TITLES variables */\n$font-color1: #ffffff; \n$section-title-font-size: 2rem;\n\n/* BTN variables */\n$button-bg-color: transparent; // Background color\n$font-color1: #ffffff; // Text color\n$button-border-color: #ffffff; // Border color\n$button-border-width: 2px; // Border width\n$button-border-radius: 10px; // Border radius\n$button-padding: 10px 20px; // Padding for the button\n\n/* Define ABOUT SECTION styles using SCSS variables */\n#about {\n    background-color: $background-color2;\n    padding: $about-section-padding;\n\n    .container {\n        .sec-title {\n            text-align: center;\n\n            h1 {\n                color: $font-color1;\n                font-size: $section-title-font-size;\n                margin-bottom: 0px;\n            }\n\n            .btn {\n                background-color: $button-bg-color;\n                color: $font-color1;\n                border: $button-border-width solid $button-border-color;\n                border-radius: $button-border-radius;\n                padding: $button-padding;\n            }\n        }\n    }\n}\n\n\n"
+	],
+	"names": [],
+	"mappings": "AAAA,iBAAiB;AAKjB,6BAA6B;AAI7B,8BAA8B;AAI9B,mBAAmB;AAQnB,sDAAsD;;AACtD,AAAA,MAAM,CAAC;EACH,gBAAgB,EAjBA,OAAO;EAkBvB,OAAO,EAjBa,KAAK;CAsC5B;;;AAvBD,AAKQ,MALF,CAIF,UAAU,CACN,UAAU,CAAC;EACP,UAAU,EAAE,MAAM;CAerB;;;AArBT,AAQY,MARN,CAIF,UAAU,CACN,UAAU,CAGN,EAAE,CAAC;EACC,KAAK,EAhBP,OAAO;EAiBL,SAAS,EArBC,IAAI;EAsBd,aAAa,EAAE,GAAG;CACrB;;;AAZb,AAcY,MAdN,CAIF,UAAU,CACN,UAAU,CASN,IAAI,CAAC;EACD,gBAAgB,EAvBd,WAAW;EAwBb,KAAK,EAvBP,OAAO;EAwBL,MAAM,EAtBA,GAAG,CAsBoB,KAAK,CAvB5B,OAAO;EAwBb,aAAa,EAtBN,IAAI;EAuBX,OAAO,EAtBN,IAAI,CAAC,IAAI;CAuBb"
+}

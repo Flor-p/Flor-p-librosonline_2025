@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}{% endblock %}</title>
+<!--CDN Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">  
+<!--Main CSS-->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"> 	
+<!--Google fonts-->	
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">	
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" rel="stylesheet"></link>
+<script>
+// Function to create fading effect on images
+    function addImageFadingEffect() {
+        const images = document.querySelectorAll('.img-fluid');
+        
+        images.forEach(image => {
+            image.addEventListener('mouseenter', () => {
+                gsap.to(image, {
+                    duration: 0.5,
+                    opacity: 0.5, // Change this value to adjust the opacity during hover
+                    ease: 'power2.out'
+                });
+            });
+
+            image.addEventListener('mouseleave', () => {
+                gsap.to(image, {
+                    duration: 0.5,
+                    opacity: 1,
+                    ease: 'power2.out'
+                });
+            });
+        });
+    }
+	
+// Call the function when the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', addImageFadingEffect);
+</script>
+
+<script src="bootstrap.min.js" ></script>
+<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    {% block content %} {% endblock %}
+
+
+    {% block ver_productos %} {% endblock %}
+
+	
+	{% block scripts %} {% endblock %} 
+</body>
+</html>
+        

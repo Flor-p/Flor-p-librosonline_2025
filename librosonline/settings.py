@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
+    'registration', #should be immediately above 'django.contrib.admin'
     #apps por defecto
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,11 +43,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # apps terceros
-    
-    
+    'captcha',
     #mis apps
+    'contacto.apps.ContactoConfig',
+    'productos.apps.ProductosConfig',
     'vistaprevia.apps.VistapreviaConfig',
-]
+    'tienda.apps.TiendaConfig',
+    'usuario.apps.UsuarioConfig',
+    
+ ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -117,13 +123,13 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False #True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static_dev"),)
 MEDIA_URL = "/media/"
@@ -134,3 +140,30 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/vistaprevia'
+LOGIN_URL = 'django.contrib.auth.views.login'
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
+SITE_ID = 1
+
+
+if DEBUG:
+   MIDDLEWARE += [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+]
+INSTALLED_APPS +=[
+         "debug_toolbar",
+]
+INTERNAL_IPS = [
+         "127.0.0.1",
+]
+
+# this is the main reason for not showing uo the toolbar
+import mimetypes
+
+mimetypes.add_type("application/javascript", ".js", True)
+
+DEBUG_TOOLBAR_CONFIG = {
+           "INTERCEPT_REDIRECTS": False,
+} 

@@ -1,44 +1,48 @@
+
 {% extends "layout.html" %}
 {% load static %}
-
 {% block tienda %}
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12" style="padding-top: 40px; padding-bottom: 40px;">
-            <form action="{% url 'cargar' %} "method="post" enctype="multipart/form-data">{% csrf_token %}
-                {{form}}
-            </form>    
-            <center><h1>Mi tienda</h1></center>
+        <div class="col-12 text-center py-4">
+            <h1>Mi tienda</h1>
         </div>
 
-    
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6" style="background-color:rgb(245, 236, 236);">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 bg-light p-4 rounded shadow">
+            <!-- Formulario de Carga de Producto -->
+            <form action="{% url 'cargar' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="id_producto" class="form-label">Producto:</label>
+                    <input type="text" name="producto" class="form-control" maxlength="200" required id="id_producto">
+                </div>
 
+                <div class="mb-3">
+                    <label for="id_fecha_publicacion" class="form-label">Fecha de publicación:</label>
+                    <input type="date" name="fecha_publicacion" class="form-control" required id="id_fecha_publicacion">
+                </div>
 
-            <form action="/tienda/cargar/"  method="post" enctype="multipart/form-data">{% csrf_token %}
-                <label for="id_producto">Producto:</label>
-                <input type="text" name="producto" maxlength="200" required="" id="id_producto">
-                <label for="id_fecha_publicacion">Fecha de publicación:</label>
-                <input type="date" name="fecha_publicacion" required="" id="id_fecha_publicacion">
-                <label for="id_imagen">Imagen:</label>
-                <input type="file" name="imagen" accept="image/*" id="id_imagen">
+                <div class="mb-3">
+                    <label for="id_imagen" class="form-label">Imagen:</label>
+                    <input type="file" name="imagen" class="form-control" accept="image/*" id="id_imagen">
+                </div>
 
-                <input type="submit" value="Submit">
+                <div class="text-center">
+                    <input type="submit" value="Subir Producto" class="btn btn-primary mt-3">
+                </div>
             </form>
-
-
-
         </div>
-        <div class="col-12" style="padding-bottom: 200px;">
 
-        </div>
+        <div class="col-12 py-5"></div>
     </div>
 </div>
 
-{% endblock  %}
+{% endblock %}
+
 {% block scripts %}
-	<script src="{% static 'js/jquery.js' %}"></script>	
+    <script src="{% static 'js/jquery.js' %}"></script>    
     <script>
         $("#id_fecha_publicacion").datepicker({
             inline: true

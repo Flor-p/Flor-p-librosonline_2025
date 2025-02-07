@@ -1,13 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import View
-from django.views.generic import FormView
-from contacto.models import Consulta
+from django.views.generic import View, FormView
+from django.urls import reverse_lazy  # Agregado
 from contacto.forms import ConsultaForm
 
 class Contacto(FormView):
     template_name = 'contacto/contacto.html'
     form_class = ConsultaForm
-    success_url = 'mensaje_enviado'  # Cambia a una URL válida, como reverse_lazy('contacto_exito')
+    success_url = reverse_lazy('contacto_exito')  # Cambiado a reverse_lazy
 
     def form_valid(self, form):
         form.save()
@@ -18,7 +17,4 @@ class MensajeEnviado(View):
     template = 'contacto/mensaje_enviado.html'
     
     def get(self, request):
-        params={}
-        params['mensaje'] = "Aquí va un mensaje"
-        return render(request, self.template, params)
-        
+        return render(request, self.template, {'mensaje': "Aquí va un mensaje"})

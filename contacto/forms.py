@@ -9,6 +9,13 @@ class ConsultaForm(ModelForm):
     class Meta:
         model = Consulta
         fields = ['nombre', 'descripcion', 'mail', 'telefono', 'fecha']
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Tu Nombre'}),
+            'descripcion': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Tu Mensaje', 'rows': 4}),
+            'mail': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Tu Correo Electrónico'}),
+            'telefono': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Tu Teléfono'}),
+            'fecha': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+        }
 
     def send_email(self):
         nombre = self.cleaned_data['nombre']
@@ -19,7 +26,3 @@ class ConsultaForm(ModelForm):
 
         # Aquí implementa la lógica para enviar el correo electrónico
         print(f"Enviando correo: {nombre}, {descripcion}, {mail}, {telefono}, {fecha}")
-        
-        
-        # A PARTIR DE ACÁ AGREGO LA LÓGICA DE ENVÍO DE MAIL
-   

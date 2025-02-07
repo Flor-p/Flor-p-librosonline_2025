@@ -1,46 +1,29 @@
-/*Global Colors*/
+/* Global Colors */
 $background-color1: #000000;
-$background-color2: 
-background: hsla(280, 84%, 41%, 1);
+$gradient-bg: linear-gradient(90deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
 
-background: linear-gradient(90deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
-
-background: -moz-linear-gradient(90deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
-
-background: -webkit-linear-gradient(90deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
-
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8711C1", endColorstr="#2472FC", GradientType=1 );
-$font-color1: #FFFFFF;
+$font-color1: #FFFFFF;  // Ensure this is defined before being used
 
 /* ABOUT SECTION variables */
-$background-color2:
-background: hsla(280, 84%, 41%, 1);
-
-background: linear-gradient(90deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
-
-background: -moz-linear-gradient(90deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
-
-background: -webkit-linear-gradient(90deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
-
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8711C1", endColorstr="#2472FC", GradientType=1 );
 $about-section-padding: 120px;
 
 /* SECTION TITLES variables */
-$font-color1: #ffffff; 
 $section-title-font-size: 2rem;
 
-/* BTN variables */
-$button-bg-color: transparent; // Background color
-$font-color1: #ffffff; // Text color
-$button-border-color: #ffffff; // Border color
-$button-border-width: 2px; // Border width
-$button-border-radius: 10px; // Border radius
-$button-padding: 10px 20px; // Padding for the button
+/* Button variables */
+$button-bg-color: transparent; 
+$button-border-color: #ffffff; 
+$button-border-width: 2px; 
+$button-border-radius: 10px; 
+$button-padding: 10px 20px; 
+
 
 /* Define ABOUT SECTION styles using SCSS variables */
 #about {
-    background-color: $background-color2;
+    background: $gradient-bg;
     padding: $about-section-padding;
+}
+
 
     .container {
         .sec-title {
@@ -62,5 +45,3 @@ $button-padding: 10px 20px; // Padding for the button
         }
     }
 }
-
-

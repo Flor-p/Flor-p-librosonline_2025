@@ -4,7 +4,7 @@ from vistaprevia.views import Templatetags1
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("templatetags1/", Templatetags1.as_view(), name="templatetags1"),
+    path("templatetags1", Templatetags1.as_view(), name="templatetags1"),
 
 
 ]

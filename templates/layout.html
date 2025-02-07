@@ -19,28 +19,58 @@
                     <a class="nav-link" href="#about">ABOUT</a>
                 </li>
 
-<li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              TEMPLATETAGS y FILTERS
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="{% url 'templatetags1' %}">templatetags</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{% url 'contacto' %}">Contacto</a></li>
-            </ul>
-          </li>
-          
-<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    SIGNALS
+<!-- Dropdown TEMPLATETAGS y FILTERS -->
+<li class="nav-item dropdown" style="position: relative;">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" 
+     style="color: #fff; font-weight: 600; padding: 10px 20px; transition: background-color 0.3s ease; position: relative;">
+      TEMPLATETAGS y FILTERS
   </a>
-  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <li><a class="dropdown-item" href="{% url 'login' %}">login</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="{% url 'logout' %}">logout</a></li>
-  
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown" 
+      style="background-color: #343a40; border-radius: 10px; padding: 10px 0; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); min-width: 180px; transition: opacity 0.3s ease;">
+      <li>
+          <a class="dropdown-item" href="{% url 'templatetags1' %}" 
+             style="color: #fff; padding: 10px 20px; font-weight: 600; transition: background-color 0.3s ease;">
+              templatetags
+          </a>
+      </li>
+      <li>
+          <hr class="dropdown-divider" style="border-color: #444; margin: 5px 0;">
+      </li>
+      <li>
+          <a class="dropdown-item" href="{% url 'contacto' %}" 
+             style="color: #fff; padding: 10px 20px; font-weight: 600; transition: background-color 0.3s ease;">
+              Contacto
+          </a>
+      </li>
   </ul>
 </li>
+
+<!-- Dropdown SIGNALS -->
+<li class="nav-item dropdown" style="position: relative;">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" 
+     style="color: #fff; font-weight: 600; padding: 10px 20px; transition: background-color 0.3s ease; position: relative;">
+      SIGNALS
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown" 
+      style="background-color: #343a40; border-radius: 10px; padding: 10px 0; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); min-width: 180px; transition: opacity 0.3s ease;">
+      <li>
+          <a class="dropdown-item" href="{% url 'login' %}" 
+             style="color: #fff; padding: 10px 20px; font-weight: 600; transition: background-color 0.3s ease;">
+              login
+          </a>
+      </li>
+      <li>
+          <hr class="dropdown-divider" style="border-color: #444; margin: 5px 0;">
+      </li>
+      <li>
+          <a class="dropdown-item" href="{% url 'logout' %}" 
+             style="color: #fff; padding: 10px 20px; font-weight: 600; transition: background-color 0.3s ease;">
+              logout
+          </a>
+      </li>
+  </ul>
+</li>
+
             </ul>
         </div>
     </div>
@@ -56,7 +86,7 @@
         <div class="col-lg-8 offset-lg-2 text-center">
           <div class="sec-title">
             <h1>Hi my name is Flor Paramidani<br>and this is my portfolio for images<br>created with AI Midjourney</h1>
-            <a href="#contact" class="btn btn-outline-light btn-lg mt-3 about-btn">open to work</a>
+            <a href="https://www.linkedin.com/in/florencia-paramidani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="btn btn-outline-light btn-lg mt-3 about-btn">open to work</a>
           </div>
         </div>
       </div>
@@ -79,8 +109,7 @@
                 <ul class="list-unstyled">
                     <li><a href="#portfolio" class="text-white">Portfolio</a></li>
                     <li><a href="#about" class="text-white">About</a></li>
-                    <li><a href="#contact" class="text-white">Contact</a></li>
-                    <li><a href="img/CV FLORENCIA PARAMIDANI 2023.pdf" class="text-white">Download my CV</a></li>
+                    
                 </ul>
             </div>
             <div class="col-md-4 footer-column">

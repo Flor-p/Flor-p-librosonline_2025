@@ -58,7 +58,27 @@
     {% block ver_productos %} {% endblock %}
 
 	
-	{% block scripts %} {% endblock %} 
+{% block scripts %}
+
+<script src="https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script type="text/javascript">
+/* jslint plusplus: true */
+/* global FormData: false */
+/* global $, jQuery, alert, console */
+
+/* ...........................................................................
+   ... PARA VALIDAR LOS DATOS ................................................
+   ..........................................................................*/
+
+var csrftoken = $.cookie('csrftoken');
+
+function csrfSafeMethod(method) {
+    "use strict";
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+</script>
+{% endblock %} 
 </body>
 </html>
         

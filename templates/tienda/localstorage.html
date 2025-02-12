@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block content %}
+  <div class="container my-5">
+    <div class="row">
+      {% for producto in productos %}
+        <div class="col-12 col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <a href="{% url 'ver' producto.id %}">
+              <img src="/media/{{ producto.imagen }}" class="card-img-top" alt="Imagen de {{ producto.nombre }}">
+            </a>
+            <div class="card-body text-center">
+              <input type="hidden" class="vervalor" value="1"/>
+              <input type="hidden" class="verid" value="utn_{{ producto.id }}"/>
+              <button type="button" class="btn btn-dark agregar">{{ producto.id }} Agregar</button>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script>
+var csrftoken = $.cookie('csrftoken');
+
+function csrfSafeMethod(method) {
+    return /^(GET|HEAD|OPTIONS|TRACE)$/.test(method);
+}
+
+function AgregarI(cada_producto_id, valor) {
+    $.ajax({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        },
+        url: "/tienda/agregar/",
+        type: "GET",
+        data: { cada_producto_id: cada_producto_id, valor: valor },
+        success: function (json) {
+            localStorage.setItem(json[0].idproducto.toString(), json[0].cantida.toString());
+            console.log("Producto agregado:", json[0].idproducto, "Cantidad:", json[0].cantida);
+        },
+        error: function () {
+            console.log('Error en carga de respuesta');
+        }
+    });
+}
+
+$('.agregar').click(function (event) {
+    event.preventDefault();
+    let cada_producto_id = $(this).siblings('.verid').val();
+    let valor = $(this).siblings('.vervalor').val();
+
+    // Paso 1: Eliminar elementos no relacionados con "utn_"
+    Object.keys(localStorage).forEach(key => {
+        if (!key.startsWith("utn_")) {
+            localStorage.removeItem(key);
+        }
+    });
+
+    // Paso 2: Verificar si el producto ya está en localStorage
+    if (localStorage[cada_producto_id]) {
+        valor = localStorage[cada_producto_id];
+    }
+
+    AgregarI(cada_producto_id, valor);
+});
+</script>
+{% endblock %}

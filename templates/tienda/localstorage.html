@@ -24,51 +24,91 @@
 {% block scripts %}
 <script src="https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
 
-<script>
-var csrftoken = $.cookie('csrftoken');
+<script = "text/javascript">
+  /jslint browser: true/
+  /jslint plusplus: true/
+  /*global FormData: false */
+  /global $, jQuery, alert, console/
+  /*..............................................................................................
+  ... PARA VALIDAR LOS DATOS .....................................................
+  .............................................................................................*/
+  var csrftoken = $.cookie('csrftoken');
+  function csrfSafeMethod(method) {
+      "use strict";
+      return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+  
+  function AgregarI(cada_producto_id, valor) {
+      "use strict";
+  
+      console.log(cada_producto_id, valor)
+      $.ajax({
+          beforeSend : function (xhr, settings) {
+              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                  xhr.setRequestHeader("X-CSRFToken", csrftoken);
+              }
+          },
+          url : "/tienda/agregar/",
+          type : "GET",
+          data : { cada_producto_id:cada_producto_id, valor:valor},
+          success : function (json) {
+              console.log(json[0].idproducto.toString())
+              console.log(json[0].cantida.toString())
+              localStorage.setItem(json[0].idproducto.toString(), json[0].cantida.toString());
+              //location.reload();
+              console.log("ok++++++++++++++++++++++++")
+          },
+          error : function (xhr, errmsg, err) {
+              console.log('Error en carga de respuesta');
+          }
+      });
+  } 
+  
+  
+  
+  
+  
+  $('.agregar').click(function (event) {
+      "use strict";
+      event.preventDefault();
+      let cada_producto_id = $(this).parent().find('.verid').val();
+      let valor = $(this).parent().find('.vervalor').val();
+      console.log(cada_producto_id);
+      console.log(valor);
+  
+      //PASO 1: Remuevo todo item que no inicia con utn_
+      let i;
+      for(i = 0; i < localStorage.length; i++){
+          let clave_eliminar = localStorage.key(i);
+          console.log(typeof clave_eliminar);
+          console.log(clave_eliminar);
+          if(!clave_eliminar.startsWith("utn_")){
+              console.log("retorna NO verdadero !!!!!!!!!!!!!");
+              localStorage.removeItem(clave_eliminar);
+              console.log("retorna NO verdadero !!!!!!!!!!!!!");
+          }
+      }
+  
+      //PASO 2: Si es la primera vez que selecciono el valor me quedo con "valor=1"
+      //Si ya existia un valor en la base tomo ese valor en lugar de 1
+      for(i = 0; i < localStorage.length; i++){
+          let clave = localStorage.key(i);
+          let el_valor = localStorage[clave];
+          if(clave == cada_producto_id){
+              console.log("-----1112------")
+              console.log(clave);
+              console.log(valor);
+              valor = el_valor;
+              console.log("-----1112------")
+          }else{
+              console.log("no hay coincidenciaaaa");
+          }   
+      }
+  
+      AgregarI(cada_producto_id, valor);
+  
+  });
 
-function csrfSafeMethod(method) {
-    return /^(GET|HEAD|OPTIONS|TRACE)$/.test(method);
-}
-
-function AgregarI(cada_producto_id, valor) {
-    $.ajax({
-        beforeSend: function (xhr, settings) {
-            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            }
-        },
-        url: "/tienda/agregar/",
-        type: "GET",
-        data: { cada_producto_id: cada_producto_id, valor: valor },
-        success: function (json) {
-            localStorage.setItem(json[0].idproducto.toString(), json[0].cantida.toString());
-            console.log("Producto agregado:", json[0].idproducto, "Cantidad:", json[0].cantida);
-        },
-        error: function () {
-            console.log('Error en carga de respuesta');
-        }
-    });
-}
-
-$('.agregar').click(function (event) {
-    event.preventDefault();
-    let cada_producto_id = $(this).siblings('.verid').val();
-    let valor = $(this).siblings('.vervalor').val();
-
-    // Paso 1: Eliminar elementos no relacionados con "utn_"
-    Object.keys(localStorage).forEach(key => {
-        if (!key.startsWith("utn_")) {
-            localStorage.removeItem(key);
-        }
-    });
-
-    // Paso 2: Verificar si el producto ya está en localStorage
-    if (localStorage[cada_producto_id]) {
-        valor = localStorage[cada_producto_id];
-    }
-
-    AgregarI(cada_producto_id, valor);
-});
-</script>
-{% endblock %}
+  
+  </script>
+  {% endblock %}

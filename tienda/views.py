@@ -51,7 +51,8 @@ def ver_imagen(request, producto_id):
     
     return render(request, "tienda/verimagen.html", params)
 
-class EjemploLocalStorage(View): 
+
+class EjemploLocalSotage(View): 
     template = "tienda/localstorage.html"
 
     def get(self, request):

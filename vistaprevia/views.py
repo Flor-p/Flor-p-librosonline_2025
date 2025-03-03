@@ -5,6 +5,37 @@ from productos.models import Producto
 from django.views.generic import View
 import datetime
 from django.shortcuts import redirect
+from tienda.forms import SearchLibroForm
+import json
+from django.http import HttpResponse
+
+
+def para_ajax(request):
+    params={}
+    search=SearchLibroForm
+    params['search']=search
+    return render(request, 'vistaprevia/ver_ajax.html', params)
+
+class BuscarLibro(View):
+    def get(self, request):
+        if self.is_ajax(request=request):
+            palabra=request.GET.get('term', '')
+            print(palabra)
+            libro=Producto.objects.filter(producto__icontains=palabra)
+            result=[]
+            for an in libro:
+                data={}
+                data['label']=an.producto
+                result.append(data)
+            data_json=json.dumps(result)
+        else:
+            data_json="fallo"
+        mimetype="application/json"
+        return HttpResponse(data_json, mimetype)
+
+
+
+    
 
 def index(request):
     params = {}
